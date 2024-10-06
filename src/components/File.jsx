@@ -1,10 +1,10 @@
 import Image from "next/image";
 import DocumentIcon from "../../public/images/icon-document.svg";
 
-function File({ date = "Document Name", fileName = "welcome.md" }) {
+const File = ({ date = "Document Name", fileName = "welcome.md" }) => {
   return (
     <div className="flex gap-4 ml-6 items-center">
-      <Image src={DocumentIcon} alt="DocumentIcon" width={14} height={0} />
+      <Image src={DocumentIcon} alt="DocumentIcon" />
       <div>
         <div
           className={`font-roboto-light text-xs ${
@@ -12,10 +12,15 @@ function File({ date = "Document Name", fileName = "welcome.md" }) {
           }`}>
           {date}
         </div>
-        <div className="font-roboto-regular text-sm text-gray-100">{fileName}</div>
+        <div
+          className={`font-roboto-regular text-sm text-gray-100 ${
+            date !== "Document Name" && "hover:text-orangeDefault transition-colors cursor-pointer"
+          }`}>
+          {fileName}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default File;
