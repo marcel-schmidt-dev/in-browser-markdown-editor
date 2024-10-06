@@ -50,7 +50,7 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
           placeholder="Gib hier deinen Markdown-Text ein..."
         />
       </div>
-      <div className="flex-1 h-full p-4 overflow-y-auto bg-gray-900">
+      <div className="markdown flex-1 h-full p-4 overflow-y-auto bg-gray-900">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
       </div>
     </div>
