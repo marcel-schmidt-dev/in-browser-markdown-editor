@@ -2,8 +2,8 @@ import { useState } from "react";
 import Image from "next/image";
 import DocumentIcon from "../../public/images/icon-document.svg";
 
-const File = ({ date = "Document Name", initialFileName = "welcome.md" }) => {
-  const [fileName, setFileName] = useState(initialFileName);
+const File = ({ date = "Document Name", filename = "welcome.md" }) => {
+  const [fileName, setFileName] = useState(filename);
   const handleFileNameChange = (e) => {
     setFileName(e.target.value);
   };
