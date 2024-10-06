@@ -20,8 +20,8 @@ module.exports = {
           900: '#1D1F22',
           1000: '#151619',
         },
-        orange_default: '#1DA1F2',
-        orange_hover: '#F39765'
+        orangeDefault: '#E46643',
+        orangeHover: '#F39765'
       },
       fontFamily: {
         'roboto-light': ['Roboto-Light', 'sans-serif'],
