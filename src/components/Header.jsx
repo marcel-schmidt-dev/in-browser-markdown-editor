@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Logo from "../../public/images/logo.svg";
 import MenuIcon from "../../public/images/icon-menu.svg";
-import DocumentIcon from "../../public/images/icon-document.svg";
+import File from "./File";
 import SaveIcon from "../../public/images/icon-save.svg";
 
 const Header = () => {
@@ -18,13 +18,7 @@ const Header = () => {
           width={178}
           height={0}
         />
-        <div className="flex gap-4 ml-6 items-center">
-          <Image src={DocumentIcon} alt="DocumentIcon" width={14} height={0} />
-          <div>
-            <div className="font-roboto-light text-xs text-gray-500">Document Name</div>
-            <div className="font-roboto-regular text-sm">welcome.md</div>
-          </div>
-        </div>
+        <File />
       </div>
       <div className="flex items-center pr-4 gap-6">
         <button>
