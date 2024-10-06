@@ -10,7 +10,7 @@ function File({ date = "Document Name", fileName = "welcome.md" }) {
           className={`font-roboto-light text-xs ${
             date === "Document Name" ? "text-gray-400" : "text-gray-500"
           }`}>
-          {title}
+          {date}
         </div>
         <div className="font-roboto-regular text-sm text-gray-100">{fileName}</div>
       </div>
