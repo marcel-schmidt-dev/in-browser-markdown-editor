@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="flex w-full">
       <div>
-        {isMenuVisible && <Menu />}
+        <Menu isMenuVisible={isMenuVisible} />
       </div>
       <div className="w-full h-screen">
         <Header toggleMenu={toggleMenu} isMenuVisible={isMenuVisible} />
