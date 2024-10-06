@@ -1,4 +1,4 @@
-import MarkdownEditor from "@/components/MarkDownEditor";
+import MarkdownEditor from "@/components/MarkDownEditor.jsx";
 
 export default function Home() {
   return (
