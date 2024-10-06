@@ -3,13 +3,16 @@ import Logo from "../../public/images/logo.svg";
 import MenuIcon from "../../public/images/icon-menu.svg";
 import File from "./File";
 import SaveIcon from "../../public/images/icon-save.svg";
+import CloseIcon from "../../public/images/icon-close.svg";
 
-const Header = () => {
+const Header = ({ toggleMenu, isMenuVisible }) => {
   return (
     <div className="flex w-full bg-gray-800 justify-between">
       <div className="flex items-center">
-        <button className="flex items-center aspect-square p-5 hover:bg-orangeDefault transition-colors">
-          <Image src={MenuIcon} alt="Menu" width={30} height={0} />
+        <button
+          onClick={toggleMenu}
+          className="flex items-center aspect-square p-5 hover:bg-orangeDefault transition-colors">
+          <Image src={isMenuVisible ? CloseIcon : MenuIcon} alt="Menu" />
         </button>
         <Image
           src={Logo}
@@ -32,7 +35,7 @@ const Header = () => {
           </svg>
         </button>
         <button className="flex items-center gap-2 px-4 py-3 bg-orangeDefault rounded hover:bg-orangeHover transition-colors">
-          <Image src={SaveIcon} alt="DocumentIcon" width={16} height={0} />
+          <Image src={SaveIcon} alt="DocumentIcon" />
           Save Changes
         </button>
       </div>
