@@ -14,8 +14,8 @@ const Menu = ({ isMenuVisible }) => {
         + New Document
       </button>
       <div className="flex flex-col gap-6 pt-6 flex-1 whitespace-nowrap">
-        <File date="01 April 2022" fileName="untitled-document.md" />
-        <File date="01 April 2022" fileName="welcome.md" />
+        <File date="01 April 2022" filename="untitled-document.md" />
+        <File date="01 April 2022" filename="welcome.md" />
       </div>
       <Switch />
     </div>
