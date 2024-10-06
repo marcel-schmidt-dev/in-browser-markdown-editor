@@ -1,31 +1,31 @@
 @font-face {
   font-family: 'Roboto-Light';
-  src: url('/src/app/fonts/Roboto-Light.ttf') format('truetype');
+  src: url('/fonts/Roboto-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto-Regular';
-  src: url('/src/app/fonts/Roboto-Regular.ttf') format('truetype');
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'RobotoMono-Regular';
-  src: url('/src/app/fonts/RobotoMono-Regular.ttf') format('truetype');
+  src: url('/fonts/RobotoMono-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'RobotoSlab-Bold';
-  src: url('/src/app/fonts/RobotoSlab-Bold.ttf') format('truetype');
+  src: url('/fonts/RobotoSlab-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'RobotoSlab-Light';
-  src: url('/src/app/fonts/RobotoSlab-Light.ttf') format('truetype');
+  src: url('/fonts/RobotoSlab-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'RobotoSlab-Regular';
-  src: url('/src/app/fonts/RobotoSlab-Regular.ttf') format('truetype');
+  src: url('/fonts/RobotoSlab-Regular.ttf') format('truetype');
 }
 
 @tailwind base;
