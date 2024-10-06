@@ -1,7 +1,13 @@
+import { useState } from "react";
 import Image from "next/image";
 import DocumentIcon from "../../public/images/icon-document.svg";
 
-const File = ({ date = "Document Name", fileName = "welcome.md" }) => {
+const File = ({ date = "Document Name", initialFileName = "welcome.md" }) => {
+  const [fileName, setFileName] = useState(initialFileName);
+  const handleFileNameChange = (e) => {
+    setFileName(e.target.value);
+  };
+
   return (
     <div className="flex gap-4 ml-6 items-center">
       <Image src={DocumentIcon} alt="DocumentIcon" />
@@ -12,12 +18,21 @@ const File = ({ date = "Document Name", fileName = "welcome.md" }) => {
           }`}>
           {date}
         </div>
-        <div
-          className={`font-roboto-regular text-sm text-gray-100 ${
-            date !== "Document Name" && "hover:text-orangeDefault transition-colors cursor-pointer"
-          }`}>
-          {fileName}
-        </div>
+        {date !== "Document Name" ? (
+          <div
+            className={`font-roboto-regular text-sm text-gray-100 ${
+              date !== "Document Name" &&
+              "hover:text-orangeDefault transition-colors cursor-pointer"
+            }`}>
+            {fileName}
+          </div>
+        ) : (
+          <input
+            className="bg-transparent text-gray-100 focus:outline-none hover:border-b-[1px] caret-orangeDefault caret"
+            value={fileName}
+            onChange={handleFileNameChange}
+          />
+        )}
       </div>
     </div>
   );
