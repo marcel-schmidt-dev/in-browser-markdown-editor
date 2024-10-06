@@ -11,8 +11,8 @@ const Header = ({ toggleMenu, isMenuVisible }) => {
       <div className="flex items-center">
         <button
           onClick={toggleMenu}
-          className="flex items-center aspect-square p-5 hover:bg-orangeDefault transition-colors">
-          <Image src={isMenuVisible ? CloseIcon : MenuIcon} alt="Menu" />
+          className="flex items-center justify-center aspect-square w-16 h-16 hover:bg-orangeDefault transition-colors">
+          <Image src={isMenuVisible ? CloseIcon : MenuIcon} alt="Menu" height={18} />
         </button>
         <Image
           src={Logo}
