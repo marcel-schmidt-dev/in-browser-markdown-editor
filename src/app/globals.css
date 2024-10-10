@@ -80,6 +80,24 @@
   color: #FFFFFF;
 }
 
+.markdown h4 {
+  font-family: 'RobotoSlab-Bold';
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.markdown h5 {
+  font-family: 'RobotoSlab-Bold';
+  font-size: .875rem;
+  color: #fff;
+}
+
+.markdown h6 {
+  font-family: 'RobotoSlab-Bold';
+  font-size: .875rem;
+  color: #E46643;
+}
+
 .markdown p {
   font-family: 'RobotoSlab-Regular';
   font-size: .875rem;
@@ -115,4 +133,31 @@
   position: absolute;
   left: 0;
   color: #E46643;
+}
+
+.markdown blockquote {
+  padding: 1.5rem;
+  border-left: 4px solid #E46643;
+  background-color: #2B2D31;
+  border-radius: .25rem;
+}
+
+.markdown blockquote p {
+  font-family: Roboto-Slab-Bold;
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: #FFF;
+}
+
+.markdown pre {
+  background-color: #2B2D31;
+  padding: 1.5rem;
+  border-radius: .25rem;
+}
+
+.markdown pre code {
+  font-family: 'RobotoMono-Regular';
+  font-size: .875rem;
+  color: #FFFFFF;
+  line-height: 1.5rem;
 }
