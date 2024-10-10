@@ -42,7 +42,10 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
 
   return (
     <div className="flex flex-col md:flex-row w-full h-[calc(100vh-64px)] overflow-y-hidden gap-[0.0625rem] bg-gray-600">
-      <div className="bg-gray-900 flex-1">
+      <div className="bg-gray-1000 flex-1">
+        <div className="px-4 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
+          Markdown
+        </div>
         <textarea
           className="w-full h-full p-4 resize-none bg-transparent focus:outline-none text-gray-400 font-roboto-mono-regular text-sm leading-6 placeholder:gray-400 placeholder:font-roboto-mono-regular placeholder:text-sm placeholder:leading-6"
           value={markdown}
@@ -50,8 +53,13 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
           placeholder="Gib hier deinen Markdown-Text ein..."
         />
       </div>
-      <div className="markdown flex-1 h-full p-4 overflow-y-auto bg-gray-900">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+      <div className="bg-gray-1000 flex-1">
+        <div className="px-4 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
+          Preview
+        </div>
+        <div className="markdown flex-1 h-full p-4 overflow-y-auto">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+        </div>
       </div>
     </div>
   );
