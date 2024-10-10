@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 
 const MarkdownEditor = () => {
   const [markdown, setMarkdown] = useState(`# Welcome to Markdown
@@ -40,24 +41,45 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
 \`\`\`
 `);
 
+  const [markdownHidden, setMarkdownHidden] = useState(false);
+
   return (
-    <div className="flex flex-col md:flex-row w-full h-[calc(100vh-64px)] overflow-y-hidden gap-[0.0625rem] bg-gray-600">
-      <div className="bg-gray-1000 flex-1">
-        <div className="px-4 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
+    <div
+      className={`flex flex-col md:flex-row w-full h-[calc(100vh-64px)] overflow-y-hidden bg-gray-600 ${
+        !markdownHidden ? "gap-[0.0625rem]" : ""
+      }`}>
+      <div
+        className={`bg-gray-1000 flex flex-col transition-all ${
+          markdownHidden ? "w-0" : "flex-1"
+        }`}>
+        <div className="px-5 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
           Markdown
         </div>
         <textarea
-          className="w-full h-full p-4 resize-none bg-transparent focus:outline-none text-gray-400 font-roboto-mono-regular text-sm leading-6 placeholder:gray-400 placeholder:font-roboto-mono-regular placeholder:text-sm placeholder:leading-6"
+          className="w-full p-5 flex-1 resize-none bg-transparent focus:outline-none text-gray-400 font-roboto-mono-regular text-sm leading-6 placeholder:gray-400 placeholder:font-roboto-mono-regular placeholder:text-sm placeholder:leading-6"
           value={markdown}
           onChange={(e) => setMarkdown(e.target.value)}
           placeholder="Gib hier deinen Markdown-Text ein..."
         />
       </div>
-      <div className="bg-gray-1000 flex-1">
-        <div className="px-4 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
-          Preview
+      <div className="bg-gray-1000 flex-1 flex flex-col">
+        <div className="px-5 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900 flex justify-between items-center">
+          <span>Preview</span>
+          <Image
+            src={
+              !markdownHidden ? "/images/icon-show-preview.svg" : "/images/icon-hide-preview.svg"
+            }
+            width={16}
+            height={16}
+            alt="Icon Show Preview"
+            onClick={() => setMarkdownHidden(!markdownHidden)}
+            className="h-auto cursor-pointer"
+          />
         </div>
-        <div className="markdown flex-1 h-full p-4 overflow-y-auto">
+        <div
+          className={`markdown h-full p-5 overflow-y-auto ${
+            markdownHidden ? "m-auto max-w-[670px]" : "flex-1"
+          }`}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </div>
       </div>
