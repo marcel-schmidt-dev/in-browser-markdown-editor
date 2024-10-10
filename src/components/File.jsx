@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Image from "next/image";
-import DocumentIcon from "../../public/images/icon-document.svg";
+import returnIcon from "./icons";
 
 const File = ({ date = "Document Name", filename = "welcome.md" }) => {
   const [fileName, setFileName] = useState(filename);
@@ -9,8 +8,8 @@ const File = ({ date = "Document Name", filename = "welcome.md" }) => {
   };
 
   return (
-    <div className="flex gap-4 ml-6 items-center">
-      <Image src={DocumentIcon} alt="DocumentIcon" />
+    <div className="flex gap-4 items-center">
+      {returnIcon("document", "fill-gray-100")}
       <div>
         <div
           className={`font-roboto-light text-xs ${
