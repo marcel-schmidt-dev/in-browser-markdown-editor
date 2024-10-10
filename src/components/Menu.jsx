@@ -10,7 +10,7 @@ const Menu = ({ isMenuVisible }) => {
       <div className="font-roboto-regular tracking-[2px] uppercase text-gray-500 text-sm h-[70px] flex items-center py-4 whitespace-nowrap">
         My Documents
       </div>
-      <button className="bg-orangeDefault rounded w-full py-3 text-center hover:bg-orangeHover transition-colors whitespace-nowrap">
+      <button className="bg-orangeDefault text-white rounded w-full py-3 text-center hover:bg-orangeHover transition-colors whitespace-nowrap">
         + New Document
       </button>
       <div className="flex flex-col gap-6 pt-6 flex-1 whitespace-nowrap">
