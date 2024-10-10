@@ -32,12 +32,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -53,13 +47,72 @@ body {
   background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #E46643;
   border-radius: 100vw;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #F39765;
+}
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.markdown h1 {
+  font-family: 'RobotoSlab-Bold';
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+
+.markdown h2 {
+  font-family: 'RobotoSlab-Light';
+  font-size: 1.75rem;
+  color: #FFFFFF;
+}
+
+.markdown h3 {
+  font-family: 'RobotoSlab-Light';
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+.markdown p {
+  font-family: 'RobotoSlab-Regular';
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: #C1C4CB;
+}
+
+.markdown ol {
+  margin-left: 1.5rem;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.markdown ul {
+  margin-left: 1.5rem;
+  list-style-type: none;
+}
+
+.markdown li {
+  font-family: 'RobotoSlab-Regular';
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: #C1C4CB;
+}
+
+.markdown ul li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.markdown ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #E46643;
 }
