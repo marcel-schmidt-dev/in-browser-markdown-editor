@@ -1,7 +1,7 @@
 import File from "./File";
 import returnIcon from "./Icons";
 
-const Header = ({ toggleMenu, isMenuVisible, onDeleteClick }) => {
+const Header = ({ toggleMenu, isMenuVisible, onDeleteClick, activeFileName }) => {
   return (
     <div className="flex w-full bg-gray-800 justify-between">
       <div className="flex items-center">
@@ -11,7 +11,7 @@ const Header = ({ toggleMenu, isMenuVisible, onDeleteClick }) => {
           {returnIcon(isMenuVisible ? "close" : "menu", "fill-gray-100")}
         </button>
         {returnIcon("logo", "mx-6 fill-gray-100")}
-        <File />
+        <File filename={activeFileName} type="input" />
       </div>
       <div className="flex items-center pr-4 gap-6">
         <button onClick={onDeleteClick}>
