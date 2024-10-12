@@ -1,7 +1,7 @@
 import File from "./File";
-import returnIcon from "./icons";
+import returnIcon from "./Icons";
 
-const Header = ({ toggleMenu, isMenuVisible }) => {
+const Header = ({ toggleMenu, isMenuVisible, onDeleteClick }) => {
   return (
     <div className="flex w-full bg-gray-800 justify-between">
       <div className="flex items-center">
@@ -14,7 +14,7 @@ const Header = ({ toggleMenu, isMenuVisible }) => {
         <File />
       </div>
       <div className="flex items-center pr-4 gap-6">
-        <button>
+        <button onClick={onDeleteClick}>
           {returnIcon("delete", "fill-gray-100 hover:fill-orangeDefault transition-colors")}
         </button>
         <button className="flex items-center gap-2 px-4 py-3 bg-orangeDefault rounded hover:bg-orangeHover transition-colors text-gray-100">
