@@ -1,10 +1,21 @@
 import { useState } from "react";
-import returnIcon from "./icons";
+import returnIcon from "./Icons";
 
 const File = ({ date = "Document Name", filename = "welcome.md" }) => {
   const [fileName, setFileName] = useState(filename);
   const handleFileNameChange = (e) => {
     setFileName(e.target.value);
+  };
+
+  const returnFormattedDate = (date) => {
+    if (date !== "Document Name") {
+      const dateObj = new Date(date * 1000);
+      return dateObj.toLocaleDateString("de-DE", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    } else return "Document Name";
   };
 
   return (
@@ -15,7 +26,7 @@ const File = ({ date = "Document Name", filename = "welcome.md" }) => {
           className={`font-roboto-light text-xs ${
             date === "Document Name" ? "text-gray-400" : "text-gray-500"
           }`}>
-          {date}
+          {returnFormattedDate(date)}
         </div>
         {date !== "Document Name" ? (
           <div
