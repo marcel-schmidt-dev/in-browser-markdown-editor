@@ -1,7 +1,7 @@
 import File from "./File";
 import Switch from "./Switch";
 
-const Menu = ({ isMenuVisible, fileList }) => {
+const Menu = ({ isMenuVisible, fileList, setActiveFile }) => {
   return (
     <div
       className={`bg-gray-900 min-h-screen flex flex-col max-w-72 overflow-x-hidden transition-all duration-300 ${
@@ -15,9 +15,16 @@ const Menu = ({ isMenuVisible, fileList }) => {
       </button>
       <div className="flex flex-col gap-6 pt-6 flex-1 whitespace-nowrap">
         {fileList.map((file) => (
-          <File key={file.id} date={file.lastEdited.seconds} filename={file.name} />
+          <File
+            key={file.id}
+            date={file.lastEdited.seconds}
+            filename={file.name}
+            handleOpenFileClick={() => {
+              setActiveFile(file);
+              console.log(file);
+            }}
+          />
         ))}
-        <File date="01 April 2022" filename="welcome.md" />
       </div>
       <Switch />
     </div>
