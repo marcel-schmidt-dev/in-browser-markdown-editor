@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import returnIcon from "./Icons";
 
-const File = ({ date = "Document Name", filename = "welcome.md" }) => {
+const File = ({ filename = "", date, handleOpenFileClick, type }) => {
   const [fileName, setFileName] = useState(filename);
-  const handleFileNameChange = (e) => {
-    setFileName(e.target.value);
+
+  useEffect(() => {
+    setFileName(filename + ".md");
+  }, [filename]);
+
+  const handleChange = (e) => {
+    let value = e.target.value;
+    if (value.endsWith(".md")) {
+      value = value.slice(0, -3);
+    }
+    setFileName(value);
+  };
+
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      e.target.blur();
+    }
   };
 
   const returnFormattedDate = (date) => {
-    if (date !== "Document Name") {
+    if (type !== "input") {
       const dateObj = new Date(date * 1000);
       return dateObj.toLocaleDateString("de-DE", {
         day: "numeric",
@@ -24,15 +39,15 @@ const File = ({ date = "Document Name", filename = "welcome.md" }) => {
       <div>
         <div
           className={`font-roboto-light text-xs ${
-            date === "Document Name" ? "text-gray-400" : "text-gray-500"
+            type === "input" ? "text-gray-400" : "text-gray-500"
           }`}>
           {returnFormattedDate(date)}
         </div>
-        {date !== "Document Name" ? (
+        {type !== "input" ? (
           <div
+            onClick={handleOpenFileClick}
             className={`font-roboto-regular text-sm text-gray-100 ${
-              date !== "Document Name" &&
-              "hover:text-orangeDefault transition-colors cursor-pointer"
+              type !== "input" && "hover:text-orangeDefault transition-colors cursor-pointer"
             }`}>
             {fileName}
           </div>
@@ -40,7 +55,9 @@ const File = ({ date = "Document Name", filename = "welcome.md" }) => {
           <input
             className="bg-transparent text-gray-100 focus:outline-none hover:border-b-[1px] caret-orangeDefault caret"
             value={fileName}
-            onChange={handleFileNameChange}
+            onChange={handleChange}
+            onBlur={() => setFileName((prev) => (prev.endsWith(".md") ? prev : `${prev}.md`))}
+            onKeyDown={handleEnter}
           />
         )}
       </div>
