@@ -76,7 +76,7 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
   }, [activeFile]);
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full overflow-x-hidden">
       <div>
         <Menu isMenuVisible={isMenuVisible} fileList={files} setActiveFile={setActiveFile} />
       </div>
@@ -87,7 +87,7 @@ This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline
           onDeleteClick={toggleDeleteConfirmation}
           activeFileName={activeFile?.name}
         />
-        <MarkdownEditor />
+        <MarkdownEditor activeFileContent={activeFile?.content} />
         {isDeleteConfirmationVisible && <DeleteConfirmation onClose={toggleDeleteConfirmation} />}
       </div>
     </div>
