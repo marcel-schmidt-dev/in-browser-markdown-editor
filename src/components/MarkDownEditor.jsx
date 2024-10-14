@@ -1,22 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const MarkdownEditor = () => {
-  const [markdown, setMarkdown] = useState(``);
+const MarkdownEditor = ({ activeFileContent }) => {
+  const [markdown, setMarkdown] = useState("");
 
   const [markdownHidden, setMarkdownHidden] = useState(false);
 
+  useEffect(() => {
+    if (activeFileContent) {
+      setMarkdown(activeFileContent);
+    }
+  }, [activeFileContent]);
+
   return (
     <div
-      className={`flex flex-col md:flex-row w-full h-[calc(100vh-64px)] overflow-y-hidden bg-gray-600 ${
+      className={`flex flex-col md:flex-row w-full min-w-full h-[calc(100vh-64px)] overflow-y-hidden bg-gray-600 ${
         !markdownHidden ? "gap-[0.0625rem]" : ""
       }`}>
       <div
-        className={`bg-gray-1000 flex flex-col transition-all ${
-          markdownHidden ? "w-0" : "flex-1"
-        }`}>
+        className={`bg-gray-1000 flex flex-col transition-all ${markdownHidden ? "w-0" : "w-1/2"}`}>
         <div className="px-5 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900">
           Markdown
         </div>
@@ -27,7 +31,7 @@ const MarkdownEditor = () => {
           placeholder="Gib hier deinen Markdown-Text ein..."
         />
       </div>
-      <div className="bg-gray-1000 flex-1 flex flex-col">
+      <div className="bg-gray-1000 min-w-1/2 flex-1 flex flex-col">
         <div className="px-5 py-3 text-gray-400 font-roboto-regular text-sm tracking-widest uppercase bg-gray-900 flex justify-between items-center">
           <span>Preview</span>
           <div
