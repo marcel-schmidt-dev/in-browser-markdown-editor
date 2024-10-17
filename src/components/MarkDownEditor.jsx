@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const MarkdownEditor = ({ activeFileContent }) => {
+const MarkdownEditor = ({ activeFile }) => {
   const [markdown, setMarkdown] = useState("");
 
   const [markdownHidden, setMarkdownHidden] = useState(false);
 
   useEffect(() => {
-    if (activeFileContent) {
-      setMarkdown(activeFileContent);
+    if (activeFile) {
+      setMarkdown(activeFile.content);
     }
-  }, [activeFileContent]);
+  }, [activeFile]);
 
   return (
     <div
