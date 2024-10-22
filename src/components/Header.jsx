@@ -2,6 +2,10 @@ import File from "./File";
 import returnIcon from "./Icons";
 
 const Header = ({ toggleMenu, isMenuVisible, onDeleteClick, activeFile, setActiveFile }) => {
+  const checkIfFileIsWelcomeOrUnnamed = () => {
+    return activeFile.name === "welcome" || activeFile.name === "unnamed";
+  };
+
   return (
     activeFile && (
       <div className="flex w-full bg-gray-800 justify-between">
@@ -15,21 +19,28 @@ const Header = ({ toggleMenu, isMenuVisible, onDeleteClick, activeFile, setActiv
           <File activeFile={activeFile} setActiveFile={setActiveFile} type="input" />
         </div>
         <div className="flex items-center pr-4 gap-6">
-          <button onClick={onDeleteClick}>
-            {returnIcon("delete", "fill-gray-100 hover:fill-orangeDefault transition-colors")}
+          <button
+            onClick={
+              activeFile.name !== "welcome" || activeFile.name !== "unnamed" ? onDeleteClick : null
+            }
+            disabled={checkIfFileIsWelcomeOrUnnamed()}>
+            {returnIcon(
+              "delete",
+              `fill-gray-100 transition-colors ${
+                checkIfFileIsWelcomeOrUnnamed()
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:fill-orangeDefault"
+              }`
+            )}
           </button>
           <button
             className={`flex items-center gap-2 px-4 py-3 bg-orangeDefault rounded transition-colors text-gray-100 ${
-              activeFile.name === "welcome" || activeFile.name === "unnamed"
+              checkIfFileIsWelcomeOrUnnamed()
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:bg-orangeHover"
             }`}
-            disabled={activeFile.name === "welcome" || activeFile.name === "unnamed"}
-            title={
-              activeFile.name === "welcome" || activeFile.name === "unnamed"
-                ? "Filename cannot be welcome or unnamed"
-                : ""
-            }>
+            disabled={checkIfFileIsWelcomeOrUnnamed()}
+            title={checkIfFileIsWelcomeOrUnnamed() ? "Filename cannot be welcome or unnamed" : ""}>
             {returnIcon("save", "fill-gray-100")}
             Save Changes
           </button>
