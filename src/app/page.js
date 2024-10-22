@@ -46,7 +46,8 @@ export default function Home() {
           toggleMenu={toggleMenu}
           isMenuVisible={isMenuVisible}
           onDeleteClick={toggleDeleteConfirmation}
-          activeFileName={activeFile?.name}
+          activeFile={activeFile}
+          setActiveFile={setActiveFile}
         />
         {activeFile && <MarkdownEditor activeFile={activeFile} />}
 
