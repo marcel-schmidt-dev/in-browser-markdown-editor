@@ -1,31 +1,31 @@
 @font-face {
-  font-family: 'Roboto-Light';
-  src: url('/fonts/Roboto-Light.ttf') format('truetype');
+  font-family: "Roboto-Light";
+  src: url("/fonts/Roboto-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Roboto-Regular';
-  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+  font-family: "Roboto-Regular";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'RobotoMono-Regular';
-  src: url('/fonts/RobotoMono-Regular.ttf') format('truetype');
+  font-family: "RobotoMono-Regular";
+  src: url("/fonts/RobotoMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'RobotoSlab-Bold';
-  src: url('/fonts/RobotoSlab-Bold.ttf') format('truetype');
+  font-family: "RobotoSlab-Bold";
+  src: url("/fonts/RobotoSlab-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'RobotoSlab-Light';
-  src: url('/fonts/RobotoSlab-Light.ttf') format('truetype');
+  font-family: "RobotoSlab-Light";
+  src: url("/fonts/RobotoSlab-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'RobotoSlab-Regular';
-  src: url('/fonts/RobotoSlab-Regular.ttf') format('truetype');
+  font-family: "RobotoSlab-Regular";
+  src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
 }
 
 @tailwind base;
@@ -48,12 +48,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E46643;
+  background: #e46643;
   border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F39765;
+  background: #f39765;
 }
 
 .markdown {
@@ -63,46 +63,46 @@
 }
 
 .markdown h1 {
-  font-family: 'RobotoSlab-Bold';
+  font-family: "RobotoSlab-Bold";
   font-size: 2rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .markdown h2 {
-  font-family: 'RobotoSlab-Light';
+  font-family: "RobotoSlab-Light";
   font-size: 1.75rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .markdown h3 {
-  font-family: 'RobotoSlab-Light';
+  font-family: "RobotoSlab-Light";
   font-size: 1.5rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .markdown h4 {
-  font-family: 'RobotoSlab-Bold';
+  font-family: "RobotoSlab-Bold";
   font-size: 1.25rem;
   color: #fff;
 }
 
 .markdown h5 {
-  font-family: 'RobotoSlab-Bold';
-  font-size: .875rem;
+  font-family: "RobotoSlab-Bold";
+  font-size: 0.875rem;
   color: #fff;
 }
 
 .markdown h6 {
-  font-family: 'RobotoSlab-Bold';
-  font-size: .875rem;
-  color: #E46643;
+  font-family: "RobotoSlab-Bold";
+  font-size: 0.875rem;
+  color: #e46643;
 }
 
 .markdown p {
-  font-family: 'RobotoSlab-Regular';
-  font-size: .875rem;
+  font-family: "RobotoSlab-Regular";
+  font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #C1C4CB;
+  color: #c1c4cb;
 }
 
 .markdown ol {
@@ -117,10 +117,10 @@
 }
 
 .markdown li {
-  font-family: 'RobotoSlab-Regular';
-  font-size: .875rem;
+  font-family: "RobotoSlab-Regular";
+  font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #C1C4CB;
+  color: #c1c4cb;
 }
 
 .markdown ul li {
@@ -132,32 +132,36 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #E46643;
+  color: #e46643;
 }
 
 .markdown blockquote {
   padding: 1.5rem;
-  border-left: 4px solid #E46643;
-  background-color: #2B2D31;
-  border-radius: .25rem;
+  border-left: 4px solid #e46643;
+  background-color: #2b2d31;
+  border-radius: 0.25rem;
 }
 
 .markdown blockquote p {
   font-family: Roboto-Slab-Bold;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #FFF;
+  color: #fff;
 }
 
 .markdown pre {
-  background-color: #2B2D31;
+  background-color: #2b2d31;
   padding: 1.5rem;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 .markdown pre code {
-  font-family: 'RobotoMono-Regular';
-  font-size: .875rem;
-  color: #FFFFFF;
+  font-family: "RobotoMono-Regular";
+  font-size: 0.875rem;
+  color: #ffffff;
   line-height: 1.5rem;
+}
+
+.markdown a {
+  text-decoration: underline;
 }
