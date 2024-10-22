@@ -28,8 +28,7 @@ const Menu = ({ isMenuVisible, fileList, setActiveFile, setFiles }) => {
         {fileList.map((file) => (
           <File
             key={file.id}
-            date={file.lastEdited.seconds}
-            filename={file.name}
+            activeFile={file}
             handleOpenFileClick={() => {
               setActiveFile(file);
               console.log(file);
