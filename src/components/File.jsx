@@ -1,25 +1,27 @@
-import { useState, useEffect } from "react";
 import returnIcon from "./Icons";
+import { useState, useEffect } from "react";
 
-const File = ({ filename = "", date, handleOpenFileClick, type }) => {
-  const [fileName, setFileName] = useState(filename);
+const File = ({ activeFile = "", handleOpenFileClick, type, setActiveFile }) => {
+  const [fileName, setFileName] = useState(activeFile.name + ".md");
 
   useEffect(() => {
-    setFileName(filename + ".md");
-  }, [filename]);
-
-  const handleChange = (e) => {
-    let value = e.target.value;
-    if (value.endsWith(".md")) {
-      value = value.slice(0, -3);
-    }
-    setFileName(value);
-  };
+    setFileName(activeFile.name + ".md");
+  }, [activeFile]);
 
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       e.target.blur();
+      handleRename(e);
     }
+  };
+
+  const handleRename = (e) => {
+    let value = e.target.value;
+    if (value.endsWith(".md")) {
+      value = value.slice(0, -3);
+    }
+    setFileName(value + ".md");
+    setActiveFile((prev) => ({ ...prev, name: value }));
   };
 
   const returnFormattedDate = (date) => {
@@ -41,7 +43,7 @@ const File = ({ filename = "", date, handleOpenFileClick, type }) => {
           className={`font-roboto-light text-xs ${
             type === "input" ? "text-gray-400" : "text-gray-500"
           }`}>
-          {returnFormattedDate(date)}
+          {returnFormattedDate(activeFile.lastEdited.seconds)}
         </div>
         {type !== "input" ? (
           <div
@@ -49,15 +51,15 @@ const File = ({ filename = "", date, handleOpenFileClick, type }) => {
             className={`font-roboto-regular text-sm text-gray-100 ${
               type !== "input" && "hover:text-orangeDefault transition-colors cursor-pointer"
             }`}>
-            {fileName}
+            {activeFile.name + ".md"}
           </div>
         ) : (
           <input
             className="bg-transparent text-gray-100 focus:outline-none hover:border-b-[1px] caret-orangeDefault caret"
             value={fileName}
-            onChange={handleChange}
-            onBlur={() => setFileName((prev) => (prev.endsWith(".md") ? prev : `${prev}.md`))}
+            onBlur={handleRename}
             onKeyDown={handleEnter}
+            onChange={(e) => setFileName(e.target.value)}
           />
         )}
       </div>
